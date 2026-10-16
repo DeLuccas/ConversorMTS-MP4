@@ -447,3 +447,57 @@
     font-size: 0.8rem;
   }
 }
+
+/* ---------- Refinamentos ---------- */
+.card {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--s-3);
+  white-space: normal;
+}
+
+.card__side {
+  display: flex;
+  align-items: center;
+}
+
+.card__state {
+  justify-content: flex-start;
+  padding-bottom: var(--s-1);
+}
+
+.card__state:empty {
+  display: none;
+}
+
+.card__state:not(:empty) {
+  margin-top: var(--s-2);
+}
+
+/* Fora da seleção a caixa some: o horário continua como título do cartão */
+.card.is-locked .check__box {
+  display: none;
+}
+
+.card.is-locked .check {
+  cursor: default;
+}
+
+@media (max-width: 599px) {
+  .card {
+    grid-template-columns: 128px minmax(0, 1fr);
+  }
+  .card__state:not(:empty) {
+    margin-top: var(--s-1);
+  }
+}
+
+@media (max-width: 599px) {
+  .card {
+    align-items: start;
+  }
+}

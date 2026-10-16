@@ -22,6 +22,7 @@ interface Row {
   dur: HTMLSpanElement;
   check: HTMLInputElement;
   meta: HTMLSpanElement;
+  side: HTMLDivElement;
   state: HTMLDivElement;
   bar: HTMLElement;
   sig: string;
@@ -75,6 +76,7 @@ export function createFileList(handlers: ListHandlers) {
       timeLabel,
     );
     const meta = h('span', { class: 'card__meta num' });
+    const side = h('div', { class: 'card__side' });
     const state = h('div', { class: 'card__state' });
     const bar = h('i');
     const el = h(
@@ -82,9 +84,9 @@ export function createFileList(handlers: ListHandlers) {
       { class: 'card', dataset: { id: item.id } },
       thumbBtn,
       h('div', { class: 'card__progress', 'aria-hidden': 'true' }, bar),
-      h('div', { class: 'card__body' }, h('div', { class: 'card__line' }, label, state), meta),
+      h('div', { class: 'card__body' }, h('div', { class: 'card__line' }, label, side), meta, state),
     );
-    return { el, thumbBtn, img, dur, check, meta, state, bar, sig: '' };
+    return { el, thumbBtn, img, dur, check, meta, side, state, bar, sig: '' };
   }
 
   function stateSignature(it: VideoItem, phase: string) {
@@ -97,6 +99,7 @@ export function createFileList(handlers: ListHandlers) {
     if (sig === row.sig) return;
     row.sig = sig;
     clear(row.state);
+    clear(row.side);
     row.el.dataset.status = it.status;
     const idle = phase === 'empty' || phase === 'ready';
 
@@ -122,7 +125,7 @@ export function createFileList(handlers: ListHandlers) {
     } else if (phase === 'converting' && store.state.batch?.ids.includes(it.id)) {
       row.state.append(h('span', { class: 'chip' }, 'Na fila'));
     } else if (idle) {
-      row.state.append(
+      row.side.append(
         h(
           'button',
           {
@@ -175,6 +178,7 @@ export function createFileList(handlers: ListHandlers) {
     const idle = phase === 'empty' || phase === 'ready';
     row.check.checked = it.selected;
     row.check.disabled = !idle;
+    row.el.classList.toggle('is-locked', !idle);
     row.el.classList.toggle('is-off', !it.selected && idle);
     row.el.hidden = !idle && !it.selected && it.status === 'queued';
 
@@ -189,11 +193,11 @@ export function createFileList(handlers: ListHandlers) {
     row.dur.hidden = !it.duration;
 
     const parts: string[] = [];
-    if (it.duration) parts.push(formatDuration(it.duration));
+    if (it.duration) parts.push(`${formatDuration(it.duration)} de vídeo`);
     if ((it.status === 'saved' || it.status === 'ready') && it.outSize) {
       parts.push(`${formatSize(it.file.size)} → ${formatSize(it.outSize)}`);
     } else parts.push(formatSize(it.file.size));
-    row.meta.textContent = parts.join('   ');
+    row.meta.replaceChildren(...parts.map((p) => h('span', null, p)));
     row.meta.title = it.outName ?? it.file.name;
 
     const p = it.status === 'converting' ? it.progress : it.status === 'saved' || it.status === 'ready' ? 100 : 0;

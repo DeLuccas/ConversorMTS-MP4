@@ -100,7 +100,7 @@ export function openPreview(item: VideoItem, onUse: (s: Settings) => void) {
   const when = `${formatDay(item.file.lastModified)}, ${formatTime(item.file.lastModified)}`;
   const modal = openModal(body, {
     title: 'Prévia da melhoria',
-    description: `Vídeo de ${when}. À esquerda, como foi gravado; à direita, como vai ficar.`,
+    description: `Vídeo de ${when.charAt(0).toLowerCase()}${when.slice(1)}. À esquerda, como foi gravado; à direita, como vai ficar.`,
     size: 'lg',
     initialFocus: () => handle,
     onClose: () => {

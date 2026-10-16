@@ -124,3 +124,10 @@
     font-size: 1.1rem;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .wordmark__mark {
+    border-radius: 8px;
+    box-shadow: 0 0 0 1px var(--border-strong);
+  }
+}

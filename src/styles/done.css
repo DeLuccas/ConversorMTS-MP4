@@ -88,3 +88,24 @@
     width: 100%;
   }
 }
+
+.done__stat dd {
+  white-space: nowrap;
+}
+
+.done__folder-icon {
+  flex: none;
+  align-self: flex-start;
+  margin-top: 0.1em;
+}
+
+.done__folder-icon .icon {
+  width: 22px;
+  height: 22px;
+}
+
+@media (max-width: 719px) {
+  .done__stat dd {
+    font-size: var(--fs-base);
+  }
+}

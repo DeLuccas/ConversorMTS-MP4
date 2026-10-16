@@ -10,8 +10,8 @@ const STEPS: { icon: IconName; title: string; text: string }[] = [
   },
   {
     icon: 'pointer',
-    title: 'Arraste a pasta para o visor',
-    text: 'Pode ser a pasta inteira do cartão. Eu encontro os vídeos.',
+    title: 'Arraste a pasta para cá',
+    text: 'Solte no quadro escuro lá em cima. Pode ser a pasta inteira do cartão.',
   },
   {
     icon: 'play',

@@ -470,3 +470,37 @@
     display: none;
   }
 }
+
+/* ---------- Refinamentos ---------- */
+.vf--compact {
+  min-height: 236px;
+}
+
+.vf--busy .vf__sub {
+  color: rgb(255 255 255 / 0.84);
+  text-shadow: 0 1px 3px rgb(0 0 0 / 0.6);
+}
+
+.vf--busy .vf__title {
+  text-shadow: 0 2px 12px rgb(0 0 0 / 0.45);
+}
+
+@media (prefers-color-scheme: dark) {
+  .vf {
+    box-shadow: 0 0 0 1px var(--border);
+  }
+}
+
+@container (max-width: 560px) {
+  .vf--compact .vf__tc,
+  .vf--compact .vf__meta {
+    display: none;
+  }
+  .vf--compact {
+    min-height: 0;
+  }
+  .vf--compact .vf__center {
+    position: relative;
+    padding-block: calc(var(--pad) + var(--corner) + 14px) calc(var(--pad) + var(--corner) + 2px);
+  }
+}

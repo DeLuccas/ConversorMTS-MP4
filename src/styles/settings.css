@@ -500,3 +500,45 @@
     display: none;
   }
 }
+
+/* ---------- Refinamentos ---------- */
+.mode__head {
+  padding-right: 36px;
+}
+
+.mode__radio {
+  position: absolute;
+  top: calc(var(--s-5) + 8px);
+  right: var(--s-5);
+  margin: 0;
+}
+
+.seg__opt {
+  white-space: nowrap;
+}
+
+@media (max-width: 719px) {
+  .mode__radio {
+    top: calc(var(--s-4) + 8px);
+    right: var(--s-4);
+  }
+  .seg__opt {
+    padding-inline: var(--s-2);
+    font-size: var(--fs-sm);
+  }
+  .adv__toggle {
+    flex-wrap: wrap;
+    row-gap: 0;
+  }
+  .adv__toggle > span:first-child {
+    flex: 1;
+  }
+  .adv__state {
+    order: 3;
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+  .adv__chev {
+    order: 2;
+  }
+}

@@ -184,3 +184,10 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* O quadro cabe na tela junto com os controles */
+.compare {
+  width: 100%;
+  max-width: max(320px, calc((100dvh - 440px) * 16 / 9));
+  margin-inline: auto;
+}

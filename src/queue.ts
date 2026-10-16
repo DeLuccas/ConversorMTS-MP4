@@ -51,10 +51,7 @@ export function currentExpectedSpeed(s: Settings): number {
 export function explainError(err: unknown, log: string): ItemError {
   const text = `${errMessage(err)}\n${log}`;
   const detail = log.trim() || errMessage(err);
-  if (/memory|OOM|Aborted\(\)|RangeError|Cannot enlarge|out of bounds/i.test(text)) {
-    return { message: 'O navegador ficou sem memória. Feche outras abas e tente de novo este vídeo.', detail };
-  }
-  if (/Invalid data found|could not find codec|Error while decoding|corrupt|non-existing PPS|moov atom/i.test(text)) {
+  if (/Invalid data found|could not find codec|Error while decoding|corrupt|non-existing PPS|moov atom|no frame|does not contain any stream|Output file is empty|Error opening input/i.test(text)) {
     return { message: 'Este vídeo parece estar corrompido. Os outros continuam normalmente.', detail };
   }
   if (/No such file|NotFoundError|NotReadableError|could not be read/i.test(text)) {
@@ -62,6 +59,9 @@ export function explainError(err: unknown, log: string): ItemError {
       message: 'Não consegui ler este arquivo. Confira se o cartão ainda está conectado e tente de novo.',
       detail,
     };
+  }
+  if (/memory|OOM|Aborted\(\)|RangeError|Cannot enlarge|out of bounds/i.test(text)) {
+    return { message: 'O navegador ficou sem memória. Feche outras abas e tente de novo este vídeo.', detail };
   }
   return {
     message: 'Não foi possível converter este vídeo. Tente de novo; se continuar, copie o registro técnico.',

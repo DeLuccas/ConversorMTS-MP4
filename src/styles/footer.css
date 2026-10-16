@@ -23,13 +23,6 @@
   color: var(--success);
 }
 
-.site-footer__brand {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: var(--fs-sm);
-  color: var(--text-2);
-  letter-spacing: 0;
-}
 
 .log__summary {
   display: inline-flex;
