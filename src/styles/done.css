@@ -1,0 +1,90 @@
+/* Estado Concluído */
+.done {
+  display: grid;
+  gap: var(--s-5);
+  padding: var(--s-5);
+  border-radius: var(--r-panel);
+  background: var(--surface);
+}
+
+.done__stats {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: space-between;
+  gap: var(--s-4) var(--s-5);
+  margin: 0;
+}
+
+.done__stat {
+  display: grid;
+  gap: 2px;
+}
+
+.done__stat dt {
+  color: var(--text-2);
+}
+
+.done__stat dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-size: var(--fs-md);
+  letter-spacing: -0.01em;
+}
+
+.done__where {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-4);
+  border-radius: var(--r-control);
+  background: var(--success-soft);
+}
+
+.done__folder-icon {
+  display: grid;
+  place-items: center;
+  color: var(--success);
+}
+
+.done__failed {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  color: var(--error);
+}
+
+.done__failed .icon {
+  margin-top: 0.2em;
+}
+
+.done__failed span {
+  color: var(--text);
+}
+
+.done__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+
+.confetti {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+@media (max-width: 719px) {
+  .done__stats {
+    grid-template-columns: 1fr 1fr;
+  }
+  .done {
+    padding: var(--s-4);
+  }
+  .done__actions .btn {
+    width: 100%;
+  }
+}

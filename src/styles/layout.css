@@ -1,0 +1,126 @@
+/* Cabeçalho, avisos, introdução e o palco do visor */
+.site-header {
+  display: flex;
+  align-items: center;
+  min-height: 76px;
+  padding-block: var(--s-4);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: var(--tap);
+  color: var(--text);
+  text-decoration: none;
+  border-radius: var(--r-control);
+}
+
+.wordmark__mark {
+  width: 34px;
+  height: 34px;
+}
+
+.wordmark__name {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: var(--fs-md);
+  letter-spacing: -0.02em;
+}
+
+.wordmark__brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-md);
+  letter-spacing: 0.01em;
+  color: var(--text-2);
+}
+
+.wordmark__brand::before {
+  content: '– ';
+  font-weight: 400;
+}
+
+.notices {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.notices:empty {
+  display: none;
+}
+
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-3) var(--s-3) var(--s-4);
+  border-radius: var(--r-panel);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.notice > .icon {
+  margin-top: 0.15em;
+  color: var(--accent-text);
+}
+
+.notice p {
+  flex: 1;
+  padding-block: 0.6em;
+  line-height: 1.4;
+}
+
+.notice > .icon:first-child {
+  margin-top: 0.75em;
+}
+
+.notice--error {
+  background: var(--error-soft);
+}
+
+.notice--error > .icon {
+  color: var(--error);
+}
+
+.intro {
+  display: grid;
+  gap: var(--s-4);
+  padding-top: var(--s-5);
+}
+
+.intro__title {
+  font-size: clamp(2rem, 1.2rem + 3vw, var(--fs-2xl));
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.025em;
+  max-width: 15em;
+}
+
+.stage {
+  display: grid;
+  gap: var(--s-4);
+}
+
+/* No estado vazio o visor fica colado à introdução */
+[data-phase='empty'] .page {
+  gap: var(--s-6);
+}
+
+[data-phase='empty'] .how {
+  margin-top: var(--s-5);
+}
+
+@media (max-width: 719px) {
+  .page {
+    gap: var(--s-6);
+  }
+  .site-header {
+    min-height: 64px;
+  }
+  .wordmark__name,
+  .wordmark__brand {
+    font-size: 1.1rem;
+  }
+}

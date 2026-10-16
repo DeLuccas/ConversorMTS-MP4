@@ -1,0 +1,118 @@
+/* Tokens de design. Claro por padrão, escuro via prefers-color-scheme. */
+:root {
+  color-scheme: light;
+
+  --bg: #eaedf1;
+  --surface: #ffffff;
+  --surface-2: #f6f7f9;
+  --surface-3: #eef1f4;
+  --text: #18202b;
+  --text-2: #5a6575;
+  --border: #cdd3dc;
+  --border-strong: #a9b2bf;
+  --accent: #2350e8;
+  --accent-hover: #1b43cf;
+  --accent-press: #1638b0;
+  --on-accent: #ffffff;
+  --accent-soft: rgb(35 80 232 / 0.08);
+  --accent-text: #1d45cf;
+  --amber: #e8a400;
+  --amber-ink: #8a5f00;
+  --success: #1c8c5a;
+  --success-soft: rgb(28 140 90 / 0.1);
+  --error: #c23a2b;
+  --error-soft: rgb(194 58 43 / 0.08);
+
+  /* O visor é sempre escuro */
+  --vf-bg: #0e1218;
+  --vf-ink: #dde6f2;
+  --vf-dim: #8e9db2;
+  --vf-line: rgb(221 230 242 / 0.72);
+  --vf-rec: #ff4b3e;
+  --vf-ok: #4cc38a;
+
+  /* Elevação: só no que flutua */
+  --shadow-float: 0 1px 2px rgb(24 32 43 / 0.06), 0 6px 16px -4px rgb(24 32 43 / 0.1), 0 24px 48px -12px rgb(24 32 43 / 0.16);
+  --shadow-bar: 0 -1px 0 rgb(24 32 43 / 0.06), 0 -8px 24px -8px rgb(24 32 43 / 0.14);
+  --float-border: transparent;
+
+  /* Tipografia — escala modular 1.25 sobre 18px */
+  --font-display: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Atkinson Hyperlegible', ui-sans-serif, system-ui, sans-serif;
+  --font-osd: 'Share Tech Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --fs-sm: 0.889rem; /* 16px: menor tamanho do app, por legibilidade */
+  --fs-base: 1rem; /* 18px */
+  --fs-md: 1.25rem; /* 22.5px */
+  --fs-lg: 1.5625rem; /* 28px */
+  --fs-xl: 1.953rem; /* 35px */
+  --fs-2xl: 2.441rem; /* 44px */
+  --lh-tight: 1.08;
+  --lh-snug: 1.3;
+  --lh-body: 1.55;
+
+  /* Espaço */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+
+  /* Raios por hierarquia */
+  --r-vf: 20px;
+  --r-panel: 14px;
+  --r-control: 10px;
+  --r-chip: 999px;
+
+  --col: 880px;
+  --gutter: 16px;
+  --tap: 44px;
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --t-fast: 150ms;
+  --t-med: 220ms;
+
+  --focus: 0 0 0 3px var(--accent);
+}
+
+@media (min-width: 720px) {
+  :root {
+    --gutter: 24px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --bg: #11151b;
+    --surface: #1a2029;
+    --surface-2: #212833;
+    --surface-3: #262e3a;
+    --text: #e6eaf0;
+    --text-2: #9aa5b5;
+    --border: #2c3542;
+    --border-strong: #3d4858;
+    --accent: #7393ff;
+    --accent-hover: #8aa5ff;
+    --accent-press: #5f80f2;
+    --on-accent: #0b1020;
+    --accent-soft: rgb(115 147 255 / 0.12);
+    --accent-text: #8ea8ff;
+    --amber: #f2b83a;
+    --amber-ink: #f2b83a;
+    --success: #4cc38a;
+    --success-soft: rgb(76 195 138 / 0.12);
+    --error: #ff7a6b;
+    --error-soft: rgb(255 122 107 / 0.1);
+
+    --vf-bg: #0e1218;
+
+    /* No escuro: borda e superfície elevada no lugar da sombra */
+    --shadow-float: none;
+    --shadow-bar: none;
+    --float-border: var(--border-strong);
+  }
+}

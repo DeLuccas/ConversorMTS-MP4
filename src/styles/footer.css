@@ -1,0 +1,84 @@
+/* Rodapé */
+.site-footer {
+  padding-block: var(--s-7) var(--s-7);
+  background: var(--bg);
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.site-footer__privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-3);
+  max-width: 40em;
+  font-size: var(--fs-md);
+  line-height: 1.4;
+}
+
+.site-footer__privacy .icon {
+  margin-top: 0.15em;
+  color: var(--success);
+}
+
+.site-footer__brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+  letter-spacing: 0;
+}
+
+.log__summary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: var(--tap);
+  color: var(--text-2);
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+  border-radius: var(--r-control);
+}
+
+.log__summary::-webkit-details-marker {
+  display: none;
+}
+
+.log__summary:hover {
+  color: var(--text);
+}
+
+.log__chev {
+  transform: rotate(-90deg);
+  transition: transform var(--t-med) var(--ease);
+}
+
+.log[open] .log__chev {
+  transform: none;
+}
+
+.log__body {
+  display: grid;
+  gap: var(--s-3);
+  justify-items: start;
+  padding-top: var(--s-2);
+}
+
+.log__pre {
+  width: 100%;
+  max-height: 320px;
+  margin: 0;
+  padding: var(--s-4);
+  overflow: auto;
+  border-radius: var(--r-control);
+  background: var(--surface);
+  color: var(--text);
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-all;
+}

@@ -1,0 +1,58 @@
+/* Barra de ação fixa no rodapé da área */
+.actionbar {
+  position: sticky;
+  bottom: 0;
+  z-index: 20;
+  margin-top: calc(var(--s-7) * -1 + var(--s-5));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: color-mix(in srgb, var(--surface) 96%, transparent);
+  box-shadow: var(--shadow-bar);
+  border-top: 1px solid var(--float-border);
+}
+
+.actionbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3) var(--s-5);
+  padding-block: var(--s-4);
+}
+
+.bar__summary {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.bar__title {
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-size: var(--fs-md);
+  letter-spacing: -0.01em;
+}
+
+.bar__sub {
+  color: var(--text-2);
+}
+
+.bar__btn {
+  flex: none;
+}
+
+@media (max-width: 599px) {
+  .actionbar__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--s-3);
+    padding-block: var(--s-3);
+  }
+  .bar__btn {
+    width: 100%;
+  }
+  .bar__title {
+    font-size: var(--fs-base);
+  }
+  .bar__sub {
+    font-size: var(--fs-sm);
+  }
+}

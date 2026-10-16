@@ -1,0 +1,206 @@
+/* "Como funciona" */
+.how {
+  display: grid;
+  gap: var(--s-5);
+}
+
+.how__steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s-5);
+  counter-reset: none;
+}
+
+.how__step {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: var(--s-2);
+}
+
+/* A linha que liga os passos: é uma sequência de verdade */
+.how__step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 72px;
+  right: calc(var(--s-5) * -1 + 8px);
+  border-top: 2px dashed var(--border-strong);
+}
+
+.how__icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: var(--s-2);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--accent-text);
+}
+
+.how__icon .icon {
+  width: 28px;
+  height: 28px;
+}
+
+.how__title {
+  font-size: var(--fs-md);
+  line-height: 1.25;
+}
+
+.how__text {
+  color: var(--text-2);
+  max-width: 22em;
+}
+
+.how__toggle {
+  justify-self: start;
+}
+
+.how__panel {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--s-6);
+  padding: var(--s-6);
+  border-radius: var(--r-panel);
+  background: var(--surface);
+}
+
+.how__panel.is-opening {
+  animation: open-down var(--t-med) var(--ease);
+}
+
+.how__panel-text {
+  display: grid;
+  align-content: start;
+  gap: var(--s-3);
+}
+
+.how__panel-title {
+  font-size: var(--fs-md);
+}
+
+@keyframes open-down {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+/* Diagrama de pastas */
+.tree,
+.tree ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tree {
+  font-variant-numeric: tabular-nums;
+}
+
+.tree ul {
+  padding-left: 22px;
+  margin-left: 11px;
+  border-left: 2px solid var(--border);
+}
+
+.tree li {
+  position: relative;
+}
+
+.tree ul > li::before {
+  content: '';
+  position: absolute;
+  left: -22px;
+  top: 1.05em;
+  width: 16px;
+  border-top: 2px solid var(--border);
+}
+
+.tree ul > li:last-child {
+  background: var(--surface);
+}
+
+.tree ul > li:last-child::after {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: calc(1.05em + 2px);
+  bottom: 0;
+  width: 4px;
+  background: var(--surface);
+}
+
+.tree__node {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 3px 0;
+  font-weight: 700;
+}
+
+.tree__node .icon {
+  color: var(--text-2);
+}
+
+.tree__node--hit {
+  padding: 3px 10px 3px 8px;
+  margin-left: -8px;
+  border-radius: var(--r-chip);
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+
+.tree__node--hit .icon {
+  color: var(--accent-text);
+}
+
+.tree__files {
+  border-left-color: transparent !important;
+}
+
+.tree__files > li::before,
+.tree__files > li::after {
+  display: none;
+}
+
+.tree__file {
+  display: inline-block;
+  padding: 1px 0;
+  color: var(--text-2);
+  font-size: var(--fs-sm);
+}
+
+@media (max-width: 719px) {
+  .how__steps {
+    grid-template-columns: 1fr;
+    gap: var(--s-4);
+  }
+  .how__step {
+    grid-template-columns: 56px 1fr;
+    column-gap: var(--s-4);
+    row-gap: 2px;
+  }
+  .how__icon {
+    grid-row: span 2;
+    margin: 0;
+  }
+  .how__step:not(:last-child)::after {
+    top: 64px;
+    bottom: calc(var(--s-4) * -1 + 6px);
+    left: 27px;
+    right: auto;
+    border-top: 0;
+    border-left: 2px dashed var(--border-strong);
+  }
+  .how__panel {
+    grid-template-columns: 1fr;
+    padding: var(--s-5);
+    gap: var(--s-5);
+  }
+}
