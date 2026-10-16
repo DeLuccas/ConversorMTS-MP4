@@ -1,0 +1,9 @@
+node_modules/
+dist/
+public/ffmpeg/
+test-results/
+playwright-report/
+test-fixtures/
+.taste-skill/
+*.log
+.DS_Store
