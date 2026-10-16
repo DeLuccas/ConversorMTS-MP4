@@ -7,3 +7,4 @@ test-fixtures/
 .taste-skill/
 *.log
 .DS_Store
+/screenshots/
